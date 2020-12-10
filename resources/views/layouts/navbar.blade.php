@@ -10,6 +10,7 @@
           </button>
         </form>
         <div class="header-button">
+          @auth
           <div class="noti-wrap">
             <div class="noti__item js-item-menu">
               <i class="zmdi zmdi-comment-more"></i>
@@ -122,8 +123,22 @@
               </div>
             </div>
           </div>
+          @else
+            <ul class="list-unstyled list-inline au-breadcrumb__list">
+              <li class="list-inline-item active">
+                <a href="#">Login</a>
+              </li>
+              <li class="list-inline-item seprate">
+                <span>/</span>
+              </li>
+              <li class="list-inline-item active">
+                <a href="#">Register</a>
+              </li>
+            </ul>
+          @endauth
           <div class="account-wrap">
             <div class="account-item clearfix js-item-menu">
+              @auth
               <div class="image">
                 <img src="{{asset('images/icon/avatar-01.jpg')}}" alt="John Doe" />
               </div>
@@ -153,16 +168,14 @@
                     <a href="#">
                       <i class="zmdi zmdi-settings"></i>Setting</a>
                   </div>
-                  <div class="account-dropdown__item">
-                    <a href="#">
-                      <i class="zmdi zmdi-money-box"></i>Billing</a>
-                  </div>
                 </div>
                 <div class="account-dropdown__footer">
                   <a href="#">
                     <i class="zmdi zmdi-power"></i>Logout</a>
                 </div>
               </div>
+              @else
+              @endauth
             </div>
           </div>
         </div>
